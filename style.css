@@ -1,16 +1,87 @@
 
 .body {
     margin: 0px;
+   
+    
+}
+.main {
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+background-color: #333333; 
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
-.background-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.header {
+    display: flex;
+flex-direction: column;
+align-items: center;
 }
-.dddaasdasdasdasdads {
-    color: aqua;
+.h1 {
+   color: #333333;
+   font-family: 'Kaushan Script', cursive;
+   font-size: 60px;
+   text-shadow: 2px 2px rgb(255, 193, 37);
+}
+
+.card-section {
+    width: 100%;
+    margin: 40px;
+    display: flex;
+    justify-content: space-evenly;
     
+}
+
+.cont-left {
+    width: 50vh;
+    height: 80vh;
+    background-color: #444444;
+    border-bottom: 3px solid rgb(255, 193, 37);
+    border-top: 3px solid rgb(255, 193, 37);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards-view {
+    width: 386px;
+    height: 114px;
+    background-color: #444444;
+    border: 1px solid rgb(255, 193, 37);
+    border-radius: 6px;
+}
+
+.cont-right {
+    width: 50vh;
+    height: 70vh;
+    background-color: #444444;
+    color: white;
+    border-bottom: 3px solid rgb(255, 193, 37);
+    border-top: 3px solid rgb(255, 193, 37);
+    border-radius: 12px;
+}
+
+#searchButton {
+    height: 35px;
+    width: 90px;
+    color: 333333;
+    font-size: 20px;
+    background-color: rgb(255, 219, 129);
+    border-radius: 6px;
+    border: 2px solid rgb(255, 193, 37);
+}
+
+#inputField {
+    height: 29px;
+    width: 230px;
+    color: 333333;
+    font-size: 20px;
+    background-color: rgb(255, 219, 129);
+    border-radius: 6px;
+    border: 2px solid rgb(255, 193, 37);
 }

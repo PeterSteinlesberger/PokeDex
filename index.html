@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-     <script src="script.js"></script>
-</head>
-<body>
-    <img class="background-img">    
-    <img src="img/"  class="background-img">    
-    <img class="background-img">
-
-    <div></div>
-    <div></div>
-    <div></div>
-
-    <span></span>  
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&display=swap" rel="stylesheet">
+  </head>
+  <body>
+<div class="main">
+    <div class="header">
+      <h1 class="h1">PokeDex</h1>
+        <div> <input id="inputField" type="Name hier eingeben" />
+             <button id="searchButton" onclick="searchByName()">Suchen</button>
+         </div> 
+    </div>
+    <div class="card-section">
+      <div class="cont-left">
+        <div class="cards-view"></div>
+        <div class="cards-view"></div>
+        <div class="cards-view"></div>
+        <div class="cards-view"></div>
+        <div class="cards-view"></div>
+      </div>
+    
+      <div class="cont-right"> 
+        <div id="pokedex">
+          <p id="pokemonName">Name</p>
+        </div>
+    </div>
+</div>
+   
+  </body>
 </html>
