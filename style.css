@@ -93,7 +93,7 @@ align-items: center;
 
 .Poke-number {
     height: 35px;
-    width: 70px;
+    width: 90px;
     background-color: rgb(255, 232, 174);
     border-bottom-right-radius: 12px;
     border-top-left-radius: 12px;
@@ -104,7 +104,7 @@ align-items: center;
 
 .Poke-number-left {
     height: 30px;
-    width: 53px;
+    width: 73px;
     background-color: rgb(255, 232, 174);
     border-bottom-right-radius: 6px;
     border-top-left-radius: 6px;
@@ -150,6 +150,7 @@ align-items: center;
     width: 300px;
 }
 .progress {
+    width: 200px;
     background-color: #444444;
 }
 
@@ -163,4 +164,30 @@ align-items: center;
 .item-name {
     width: 100px;
     margin-bottom: 0;
+}
+.container-items {
+    width: 50vh;
+    height: 240px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid rgb(255, 193, 37);
+    border-radius: 12px;
+    box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.3);
+}
+
+.experience {
+    background-color: rgb(65, 180, 30);
+}
+
+.weight {
+    background-color: deepskyblue;
+}
+
+.height {
+    background-color: dodgerblue;
+}
+
+.order {
+    background-color: rgb(173, 2, 173);
 }

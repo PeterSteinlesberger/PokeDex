@@ -18,13 +18,17 @@ document.getElementById('weight').innerHTML = currentPokemon['weight'];
 document.getElementById('height').innerHTML = currentPokemon['height'];
 document.getElementById('order').innerHTML = currentPokemon['order'];
 document.getElementById('experience').innerHTML = currentPokemon['base_experience'];
-
-
-
+renderProgressBars();
 }
 
 function searchByName() {
     searchWithName = document.getElementById('inputField').value;
     loadPokemon();
-    
+}
+
+function renderProgressBars() {
+    document.getElementById('experience').style.width = `${currentPokemon['base_experience'] /2}%`;
+    document.getElementById('weight').style.width = `${currentPokemon['weight'] /2}%`;
+    document.getElementById('height').style.width = `${currentPokemon['height'] *5}%`;
+    document.getElementById('order').style.width = `${currentPokemon['order'] *5}%`;
 }
