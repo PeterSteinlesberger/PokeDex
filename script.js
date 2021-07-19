@@ -11,9 +11,15 @@ async function loadPokemon() {
 }
 
 function renderPokemonInfo() {
-    document.getElementById('pokeName').innerHTML = currentPokemon['name'];
-    document.getElementById('pokeNumber').innerHTML += currentPokemon['id'];
+document.getElementById('pokeName').innerHTML = currentPokemon['name'];
+document.getElementById('pokeNumber').innerHTML += currentPokemon['id'];
 document.getElementById('pokeImg').src = currentPokemon['sprites']['front_default'];
+document.getElementById('weight').innerHTML = currentPokemon['weight'];
+document.getElementById('height').innerHTML = currentPokemon['height'];
+document.getElementById('order').innerHTML = currentPokemon['order'];
+document.getElementById('experience').innerHTML = currentPokemon['base_experience'];
+
+
 
 }
 

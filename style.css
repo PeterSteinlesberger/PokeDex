@@ -136,6 +136,7 @@ align-items: center;
     width: 220px;
     object-fit: cover;
     margin-top: -36px;
+    margin-bottom: 80px;
 }
 
 
@@ -150,4 +151,16 @@ align-items: center;
 }
 .progress {
     background-color: #444444;
+}
+
+.items {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.item-name {
+    width: 100px;
+    margin-bottom: 0;
 }
