@@ -18,12 +18,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body onload="loadPokemon(), renderPokemonInfo()">
 <div class="main">
     <div class="header">
       <h1 class="h1">PokeDeX</h1>
-        <div> <input id="inputField" type="Name hier eingeben" />
-             <button id="searchButton" onclick="searchByName()">Suchen</button>
+        <div class="inputfield-cont"> <input id="inputField" placeholder=" Name eingeben..." />
+             <button id="searchButton" onclick="searchByName()"> Suchen</button>
          </div> 
     </div>
     <div class="card-section">
@@ -41,6 +41,7 @@
             <div class="cont-right-contend">
           <p id="pokeName" class="Poke-name">Name</p>
           <img id="pokeImg" class="Poke-img" src="">
+          <span id="type" class="poke-type"></span>
           <div class="container-items">
           <div class="cont-items">
               <div class="items" >

@@ -1,6 +1,6 @@
 
 let currentPokemon;
-let searchWithName;
+let searchWithName = "charmander";
 
 async function loadPokemon() {
     let url = `https://pokeapi.co/api/v2/pokemon/${searchWithName}`;
@@ -12,12 +12,13 @@ async function loadPokemon() {
 
 function renderPokemonInfo() {
 document.getElementById('pokeName').innerHTML = currentPokemon['name'];
-document.getElementById('pokeNumber').innerHTML += currentPokemon['id'];
+document.getElementById('pokeNumber').innerHTML = `#${currentPokemon['id']}`;
 document.getElementById('pokeImg').src = currentPokemon['sprites']['front_default'];
 document.getElementById('weight').innerHTML = currentPokemon['weight'];
 document.getElementById('height').innerHTML = currentPokemon['height'];
 document.getElementById('order').innerHTML = currentPokemon['order'];
 document.getElementById('experience').innerHTML = currentPokemon['base_experience'];
+document.getElementById('type').innerHTML = currentPokemon['types']['0']['type']['name'];
 renderProgressBars();
 }
 

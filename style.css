@@ -136,7 +136,7 @@ align-items: center;
     width: 220px;
     object-fit: cover;
     margin-top: -36px;
-    margin-bottom: 80px;
+    margin-bottom: 5px;
 }
 
 
@@ -190,4 +190,24 @@ align-items: center;
 
 .order {
     background-color: rgb(173, 2, 173);
+}
+
+.poke-type {
+    margin-bottom: 30px;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 30px;
+}
+
+.inputfield-cont {
+    width: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: gray;
+}
+
+#searchButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
