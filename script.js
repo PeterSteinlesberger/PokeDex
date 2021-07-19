@@ -13,7 +13,7 @@ async function loadPokemon() {
 function renderPokemonInfo() {
     document.getElementById('pokeName').innerHTML = currentPokemon['name'];
     document.getElementById('pokeNumber').innerHTML += currentPokemon['id'];
-
+document.getElementById('pokeImg').src = currentPokemon['sprites']['front_default'];
 
 }
 
