@@ -274,3 +274,27 @@ align-items: center;
     margin-bottom: 30px;
 }
 
+
+.footer-container {
+    width: 345px;
+    display: flex;
+    justify-content: center;
+    margin-right: 25px; 
+    margin-left: 25px;
+    box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.3);
+    height: 23px;
+    border-top: 3px solid rgb(255, 193, 37);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.footer-container a:hover {
+    text-decoration: 6px overline #333333;
+    color: rgb(8, 233, 233);
+}
