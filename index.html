@@ -19,28 +19,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pacifico&display=swap" rel="stylesheet">
   </head>
   <body onload="loadPokemon(), renderPokemonInfo()">
-<div class="main">
+<div id="main" class="main">  
+   <div class="top-container">
+<img class="logo" src="">
+<div class="navbar-container">
+  <a class="link" href="main">Home</a>
+  <a class="link" href="pokeNames">PokeNames</a>
+  <a class="link" href="#">Feedback</a>
+  <a class="link" href="#">Tip</a>
+</div>
+      </div>
     <div class="header">
+   
       <h1 class="h1">PokeDeX</h1>
         <div class="inputfield-cont"> <input id="inputField" placeholder=" Name eingeben..." />
-             <button id="searchButton" onclick="searchByName()"> Suchen</button>
+             <button id="searchButton" onclick="searchByName()"> Search</button>
          </div> 
     </div>
     <div class="card-section">
+      
       <div class="cont-left">
-        <div class="cards-view"> <div class="Poke-number-left" ></div> </div>
-        <div class="cards-view"> <div class="Poke-number-left" ></div> </div>
-        <div class="cards-view"> <div class="Poke-number-left" ></div> </div>
-        <div class="cards-view"> <div class="Poke-number-left" ></div> </div>
-        <div class="cards-view"> <div class="Poke-number-left" ></div> </div>
+        <div class="cards-view"> <div class="poke-number-left" ></div> </div>
+        <div class="cards-view"> <div class="poke-number-left" ></div> </div>
+        <div class="cards-view"> <div class="poke-number-left" ></div> </div>
       </div>
     
       <div class="cont-right"> 
         <div id="pokedex">
-            <div id="pokeNumber" class="Poke-number"><b>#&nbsp</b></div>
+            <div id="pokeNumber" class="poke-number"><b>#&nbsp</b></div>
             <div class="cont-right-contend">
-          <p id="pokeName" class="Poke-name">Name</p>
-          <img id="pokeImg" class="Poke-img" src="">
+          <p id="pokeName" class="poke-name">Name</p>
+          <img id="pokeImg" class="poke-img" src="">
           <span id="type" class="poke-type"></span>
           <div class="container-items">
           <div class="cont-items">
@@ -69,7 +78,27 @@
           </div>
         </div>
     </div>
-</div>
    
+
+</div> 
+
+   <div class="cont-pokeNames">
+     <h2 id="pokeNames" class="h2">PokeNames</h2>
+    </div>
+   <div class="footer">
+    <div class="footer-container">
+     <span class="link">copyright 2021</span>
+     </div>
+     <div class="footer-container">
+      <a class="link" href="Home">Home</a>
+      <a class="link" href="#">Feedback</a>
+      <a class="link" href="#">Tip</a>
+    </div>
+    <div class="footer-container">
+      <a class="link" href="#">Impressum</a>
+      <a class="link" href="#">Datenschutz</a>
+      <a class="link" href="#">AGB</a>
+    </div>
+   </div>
   </body>
 </html>
