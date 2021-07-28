@@ -1,5 +1,5 @@
 
-.body {
+body {
     margin: 0px;
    
     
@@ -15,20 +15,64 @@ flex-direction: column;
 align-items: center;
 }
 
+.top-container {
+    height: 33px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-container {
+    width: 345px;
+    display: flex;
+    justify-content: center;
+    margin-right: 40px; 
+    box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.3);
+    height: 23px;
+    border-bottom: 3px solid rgb(255, 193, 37);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+padding-bottom: 8px;
+}
+
+.link {
+color: rgb(255, 193, 37);
+font-size: 18px;
+padding-left: 10px;
+padding-right: 10px;
+font-style: unset;
+text-decoration: none;
+}
+
+.navbar-container a:hover {
+    text-decoration: 6px underline #333333;
+    color: rgb(8, 233, 233);
+}
+
+
 .header {
     display: flex;
 flex-direction: column;
 align-items: center;
 }
+
 .h1 {
    color: #333333;
    font-family: 'Kaushan Script', cursive;
    font-size: 60px;
    text-shadow: 2px 2px rgb(255, 193, 37);
-   margin-top: 50px;
+   margin-top: 30px;
    margin-bottom: 28px;
 }
 
+.h2 {
+    text-align: center;
+    color: rgb(255, 193, 37);
+    font-family: 'Kaushan Script', cursive;
+    font-size: 45px;
+ margin-top: 10px;
+}
 .card-section {
     width: 100%;
     margin: 30px;
@@ -39,7 +83,7 @@ align-items: center;
 
 .cont-left {
     width: 50vh;
-    height: 80vh;
+    max-height: 70vh;
     background-color: #444444;
     border-bottom: 3px solid rgb(255, 193, 37);
     border-top: 3px solid rgb(255, 193, 37);
@@ -48,11 +92,11 @@ align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.2);
 }
 
 .cards-view {
-    width: 386px;
+    width: 90%;
     height: 114px;
     background-color: #444444;
     border: 1px solid rgb(255, 193, 37);
@@ -62,13 +106,12 @@ align-items: center;
 
 .cont-right {
     width: 50vh;
-    height: 70vh;
     background-color: #444444;
     color: white;
     border-bottom: 3px solid rgb(255, 193, 37);
     border-top: 3px solid rgb(255, 193, 37);
     border-radius: 12px;
-    box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.2);
 }
 
 #searchButton {
@@ -91,7 +134,7 @@ align-items: center;
     border: 2px solid rgb(255, 193, 37);
 }
 
-.Poke-number {
+.poke-number {
     height: 35px;
     width: 90px;
     background-color: rgb(255, 232, 174);
@@ -102,7 +145,7 @@ align-items: center;
     box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.3);
 }
 
-.Poke-number-left {
+.poke-number-left {
     height: 30px;
     width: 73px;
     background-color: rgb(255, 232, 174);
@@ -114,7 +157,7 @@ align-items: center;
 
 }
 
-.Poke-number {
+.poke-number {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,7 +166,7 @@ align-items: center;
     font-weight: 400;
 }
 
-.Poke-name {
+.poke-name {
     text-align: center;
     color: white;
     font-family: 'Kaushan Script', cursive;
@@ -131,12 +174,17 @@ align-items: center;
     margin-top: -10px;
 }
 
-.Poke-img {
-    height: 200px;
-    width: 220px;
+.poke-img {
+    height: 180px;
+    width: 200px;
     object-fit: cover;
-    margin-top: -36px;
+    margin-top: -21px;
     margin-bottom: 5px;
+    border-top-left-radius: 41%;
+    background-color: #444444;
+    border-bottom-left-radius: 90%;
+    border-bottom-right-radius: 41%;
+    border-top-right-radius: 90%;
 }
 
 
@@ -147,7 +195,7 @@ align-items: center;
 }
 .cont-items {
     height: 300px;
-    width: 300px;
+    width: 90%;
 }
 .progress {
     width: 200px;
@@ -158,7 +206,7 @@ align-items: center;
     display: flex;
     justify-content: start;
     align-items: center;
-    margin-bottom: 22px;
+    margin-bottom: 8px;
 }
 
 .item-name {
@@ -167,13 +215,13 @@ align-items: center;
 }
 .container-items {
     width: 50vh;
-    height: 240px;
+    height: 190px;
     padding-top: 30px;
     display: flex;
     justify-content: center;
     border-top: 2px solid rgb(255, 193, 37);
     border-radius: 12px;
-    box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.15);
 }
 
 .experience {
@@ -199,7 +247,7 @@ align-items: center;
 }
 
 .inputfield-cont {
-    width: 330px;
+    width: 340px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -207,7 +255,22 @@ align-items: center;
 }
 
 #searchButton {
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+.cont-pokeNames {
+    width: 70%;
+    min-height: 80vh;
+    background-color: #444444;
+    border-bottom: 3px solid rgb(255, 193, 37);
+    border-top: 3px solid rgb(255, 193, 37);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
