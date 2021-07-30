@@ -7,12 +7,8 @@ async function loadPokemon() {
     let response = await fetch(url);
     currentPokemon = await response.json();
     renderPokemonInfo();
-    renderOverview(); 
-    
-    if(currentPokemon > 0) {
-       showOverview();
-    }
- 
+    showOverview();
+    renderOverview();  
 }
 
 function renderPokemonInfo() {
