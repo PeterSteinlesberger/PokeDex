@@ -1,8 +1,6 @@
 
 body {
     margin: 0px;
-   
-    
 }
 .main {
 left: 0;
@@ -29,7 +27,7 @@ align-items: center;
     justify-content: center;
     margin-right: 40px; 
     box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.3);
-    height: 23px;
+    height: 30px;
     border-bottom: 3px solid rgb(255, 193, 37);
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
@@ -46,7 +44,7 @@ text-decoration: none;
 }
 
 .navbar-container a:hover {
-    text-decoration: 6px underline #333333;
+    text-decoration: 8px underline #333333;
     color: rgb(8, 233, 233);
 }
 
@@ -60,7 +58,7 @@ align-items: center;
 .h1 {
    color: #333333;
    font-family: 'Kaushan Script', cursive;
-   font-size: 60px;
+   font-size: 70px;
    text-shadow: 2px 2px rgb(255, 193, 37);
    margin-top: 30px;
    margin-bottom: 28px;
@@ -68,7 +66,8 @@ align-items: center;
 
 .h2 {
     text-align: center;
-    color: rgb(255, 193, 37);
+    color: #444444;
+    text-shadow: 2px 2px rgb(255, 193, 37);
     font-family: 'Kaushan Script', cursive;
     font-size: 45px;
  margin-top: 10px;
@@ -115,7 +114,7 @@ align-items: center;
 }
 
 #searchButton {
-    height: 30px;
+    height: 30px !important;
     width: 90px;
     color: 333333;
     font-size: 20px;
@@ -174,17 +173,24 @@ align-items: center;
     margin-top: -10px;
 }
 
-.poke-img {
-    height: 180px;
-    width: 200px;
+.poke-cont {
+    height: 230px;
+    width: 260px;
     object-fit: cover;
-    margin-top: -21px;
-    margin-bottom: 5px;
+    margin-left: 65px;
+    margin-top: -10px;
+    margin-bottom: 26px;
     border-top-left-radius: 41%;
-    background-color: #444444;
+    background-color: #8a1313;
     border-bottom-left-radius: 90%;
     border-bottom-right-radius: 41%;
     border-top-right-radius: 90%;
+   
+}
+
+.poke-img {
+    height: 220px;
+    margin-top: 40px;
 }
 
 
@@ -241,9 +247,9 @@ align-items: center;
 }
 
 .poke-type {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     font-family: 'Kaushan Script', cursive;
-    font-size: 30px;
+    font-size: 26px;
 }
 
 .inputfield-cont {
@@ -282,7 +288,7 @@ align-items: center;
     margin-right: 25px; 
     margin-left: 25px;
     box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.3);
-    height: 23px;
+    height: 33px;
     border-top: 3px solid rgb(255, 193, 37);
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
