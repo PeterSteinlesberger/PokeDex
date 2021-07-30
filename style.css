@@ -97,10 +97,19 @@ align-items: center;
 .cards-view {
     width: 90%;
     height: 114px;
+    display: flex;
     background-color: #444444;
     border: 1px solid rgb(255, 193, 37);
     border-radius: 6px;
     box-shadow: 0px 0px 25px 7px rgba(0,0,0,0.3);
+}
+
+.nameOverview {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px;
+    color: white;
+    margin-left: 30px;
+    margin-top: 9px;
 }
 
 .cont-right {
@@ -147,6 +156,7 @@ align-items: center;
 .poke-number-left {
     height: 30px;
     width: 73px;
+    text-align: center;
     background-color: rgb(255, 232, 174);
     border-bottom-right-radius: 6px;
     border-top-left-radius: 6px;
