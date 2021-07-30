@@ -31,17 +31,53 @@
       </div>
     <div class="header">
    
-      <h1 class="h1">PokeDeX</h1>
+      <h1 class="h1">PokéDeX</h1>
         <div class="inputfield-cont"> <input id="inputField" placeholder=" Name eingeben..." />
              <button id="searchButton" onclick="searchByName()"> Search</button>
          </div> 
     </div>
     <div class="card-section">
       
-      <div class="cont-left">
-        <div class="cards-view"> <div class="poke-number-left" ></div> </div>
-        <div class="cards-view"> <div class="poke-number-left" ></div> </div>
-        <div class="cards-view"> <div class="poke-number-left" ></div> </div>
+      <div  class="cont-left">
+        <div id="pokeColorOverview" class="cards-view"> 
+          <div id="pokeNumberOverview" class="poke-number-left" ></div> 
+          <div class="overview-cont">
+            <img id="pokeImgOverview" class="imgOverview" src="">
+            <div class="text-Overview">
+         <p id="pokeNameOverview" class="nameOverview" ></p>
+         <p id="typeOverview" class="typeOverview" ></p>
+        </div>
+      </div>
+        <div>
+      <!--   <div class="container-items">
+          <div class="cont-items">
+              <div class="items" >
+           <p class="item-name">Experience</p> <div class="progress">
+                <div id="experience" class="progress-bar experience" role="progressbar" style="width: 10%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="items" >
+              <p class="item-name">Weight</p> <div class="progress">
+                <div id="weight" class="progress-bar weight" role="progressbar" style="width: 10%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div> 
+            <div class="items" >
+              <p class="item-name">Height</p> <div class="progress">
+                <div id="height" class="progress-bar height" role="progressbar" style="width: 10%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div> 
+            <div class="items" >
+              <p class="item-name">Order</p> <div class="progress">
+                <div id="order" class="progress-bar order" role="progressbar" style="width: 10%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div> 
+        </div>-->
+      
+      </div>
+
+        
+        </div>
+        
       </div>
     
       <div class="cont-right"> 
@@ -49,7 +85,7 @@
             <div id="pokeNumber" class="poke-number"><b>#&nbsp</b></div>
             <div class="cont-right-contend">
           <p id="pokeName" class="poke-name">Name</p>
-          <img id="pokeImg" class="poke-img" src="">
+          <div id="pokeColor" class="poke-cont"><img id="pokeImg" class="poke-img" src=""></div>
           <span id="type" class="poke-type"></span>
           <div class="container-items">
           <div class="cont-items">
@@ -83,7 +119,7 @@
 </div> 
 
    <div class="cont-pokeNames">
-     <h2 id="pokeNames" class="h2">PokeNames</h2>
+     <h2 id="pokeNames" class="h2">PokéNames</h2>
     </div>
    <div class="footer">
     <div class="footer-container">
@@ -99,6 +135,6 @@
       <a class="link" href="#">Datenschutz</a>
       <a class="link" href="#">AGB</a>
     </div>
-   </div>
+   </div> 
   </body>
 </html>
