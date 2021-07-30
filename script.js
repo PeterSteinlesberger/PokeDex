@@ -6,21 +6,27 @@ async function loadPokemon() {
     let url = `https://pokeapi.co/api/v2/pokemon/${searchWithName}`;
     let response = await fetch(url);
     currentPokemon = await response.json();
-    console.log(currentPokemon);
     renderPokemonInfo();
+    renderOverview(); 
+    
+    if(currentPokemon > 0) {
+       showOverview();
+    }
+ 
 }
 
 function renderPokemonInfo() {
 document.getElementById('pokeName').innerHTML = currentPokemon['name'];
 document.getElementById('pokeNumber').innerHTML = `#${currentPokemon['id']}`;
-document.getElementById('pokeImg').src = currentPokemon['sprites']['front_default'];
+document.getElementById('pokeImg').src = currentPokemon['sprites']['other']['dream_world']['front_default'];
 document.getElementById('weight').innerHTML = currentPokemon['weight'];
 document.getElementById('height').innerHTML = currentPokemon['height'];
 document.getElementById('order').innerHTML = currentPokemon['order'];
 document.getElementById('experience').innerHTML = currentPokemon['base_experience'];
 document.getElementById('type').innerHTML = currentPokemon['types']['0']['type']['name'];
 renderProgressBars();
-getColorForPokemon();
+document.getElementById('pokeColor').style = `background-color: ${getColorForPokemon()}`;
+document.getElementById('type').style = `color: ${getColorForPokemon()}`;
 }
 
 function searchByName() {
@@ -37,40 +43,58 @@ function renderProgressBars() {
 
 
 function getColorForPokemon() {
-    
-let pokeBackground = document.getElementById('pokeImg');
 let classTyp = currentPokemon['types']['0']['type']['name'];
     switch (classTyp) { 
-        case 'Grass':
+        case 'grass':
             return '#7fdd6d'; 
-        case 'Fire':
+        case 'fire':
             return '#ff5f6e';
-            case 'Water':
+            case 'water':
                 return '#2d97eb';
-            case 'Normal':
+            case 'normal':
                 return '#9e9ca0';
-            case 'Electric':
+            case 'electric':
                 return '#e2c700';
-            case 'Bug':
+            case 'bug':
                 return '#a25757';
-            case 'Poison':
+            case 'poison':
                 return '#ffae03';
-            case 'Ground':
+            case 'ground':
                 return '#743b3b';
-            case 'Fairy':
+            case 'fairy':
                 return '#9147bb';
-            case 'Fighting':
+            case 'fighting':
                 return '#eb3434';
-            case 'Psychic':
+            case 'psychic':
                 return '#7c1457';
-            case 'Rock':
+            case 'rock':
                 return '#7c1457';
-            case 'Ghost':
+            case 'ghost':
                 return '#194600';
-            case 'Ice':
+            case 'ice':
                 return '#2accc6';
-            case 'Dragon':
+            case 'dragon':
                 return '#836312';
     }
-    pokeBackground.classList.style = `background-color: ${classTyp}`;
     }
+
+ function renderOverview() { 
+    document.getElementById('pokeNameOverview').innerHTML = currentPokemon['name'];
+        document.getElementById('pokeNumberOverview').innerHTML = `#${currentPokemon['id']}`;
+        document.getElementById('pokeImgOverview').src = currentPokemon['sprites']['other']['dream_world']['front_default'];
+        document.getElementById('typeOverview').innerHTML = currentPokemon['types']['0']['type']['name'];
+        document.getElementById('pokeColorOverview').style = `background-color: ${getColorForPokemon()}`;
+        }
+
+        function showOverview() {
+        document.getElementById('overviewContainer').innerHTML += `<div id="pokeColorOverview" class="cards-view"> 
+        <div id="pokeNumberOverview" class="poke-number-left" ></div> 
+        <div class="overview-cont">
+          <img id="pokeImgOverview" class="imgOverview" src="">
+          <div class="text-Overview">
+       <p id="pokeNameOverview" class="nameOverview" ></p>
+       <p id="typeOverview" class="typeOverview" ></p>
+      </div>
+    </div>
+      </div>`;
+        }
