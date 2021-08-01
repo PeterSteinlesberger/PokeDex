@@ -1,11 +1,13 @@
 
 let currentPokemon;
 let searchWithName = "charmander";
+let searchResults = [];
 
 async function loadPokemon() {
     let url = `https://pokeapi.co/api/v2/pokemon/${searchWithName}`;
     let response = await fetch(url);
     currentPokemon = await response.json();
+    searchResults.push(currentPokemon);
     renderPokemonInfo();
     showOverview();
     renderOverview();  
@@ -38,8 +40,9 @@ function renderProgressBars() {
 }
 
 
-function getColorForPokemon() {
-let classTyp = currentPokemon['types']['0']['type']['name'];
+function getColorForPokemon(i) {
+    let searchResult = searchResults[i];
+let classTyp = searchResult['types']['0']['type']['name'];
     switch (classTyp) { 
         case 'grass':
             return '#7fdd6d'; 
@@ -74,23 +77,30 @@ let classTyp = currentPokemon['types']['0']['type']['name'];
     }
     }
 
- function renderOverview() { 
-    document.getElementById('pokeNameOverview').innerHTML = currentPokemon['name'];
-        document.getElementById('pokeNumberOverview').innerHTML = `#${currentPokemon['id']}`;
-        document.getElementById('pokeImgOverview').src = currentPokemon['sprites']['other']['dream_world']['front_default'];
-        document.getElementById('typeOverview').innerHTML = currentPokemon['types']['0']['type']['name'];
-        document.getElementById('pokeColorOverview').style = `background-color: ${getColorForPokemon()}`;
-        }
+ function renderOverview(i) { 
+      
+         let searchResult = searchResults[i];
+        document.getElementById('pokeNameOverview').innerHTML = searchResult['name'];
+        document.getElementById('pokeNumberOverview').innerHTML = `#${searchResult['id']}`;
+        document.getElementById('pokeImgOverview').src = searchResult['sprites']['other']['dream_world']['front_default'];
+        document.getElementById('typeOverview').innerHTML = searchResult['types']['0']['type']['name'];
+        document.getElementById('pokeColorOverview').style = `background-color: ${getColorForPokemon(searchResult[i])}`;
+        } 
+     
 
         function showOverview() {
-        document.getElementById('overviewContainer').innerHTML += `<div id="pokeColorOverview" class="cards-view"> 
-        <div id="pokeNumberOverview" class="poke-number-left" ></div> 
+           for (let i = 0; i < searchResults.length; i++) {
+               let searchResult = searchResults[i];
+                document.getElementById('overviewContainer').innerHTML += `<div id="pokeColorOverview${i}" class="cards-view"> 
+        <div id="pokeNumberOverview${i}" class="poke-number-left" ></div> 
         <div class="overview-cont">
-          <img id="pokeImgOverview" class="imgOverview" src="">
+          <img id="pokeImgOverview${i}" class="imgOverview" src="">
           <div class="text-Overview">
-       <p id="pokeNameOverview" class="nameOverview" ></p>
-       <p id="typeOverview" class="typeOverview" ></p>
+       <p id="pokeNameOverview${i}" class="nameOverview" ></p>
+       <p id="typeOverview${i}" class="typeOverview" ></p>
       </div>
     </div>
       </div>`;
+      renderOverview(i);
+    } 
         }
