@@ -1,15 +1,16 @@
 
 let currentPokemon;
 let searchWithName = "charmander";
-let searchEntries = 1;
+let searchResults = [];
 
 async function loadPokemon() {
     let url = `https://pokeapi.co/api/v2/pokemon/${searchWithName}`;
     let response = await fetch(url);
     currentPokemon = await response.json();
+    searchResults.push(currentPokemon);
     renderPokemonInfo();
     showOverview();
- 
+    renderOverview();  
 }
 
 function renderPokemonInfo() {
@@ -39,8 +40,9 @@ function renderProgressBars() {
 }
 
 
-function getColorForPokemon() {
-let classTyp = currentPokemon['types']['0']['type']['name'];
+function getColorForPokemon(i) {
+     let searchResult = i;
+let classTyp = searchResult['types']['0']['type']['name'];
     switch (classTyp) { 
         case 'grass':
             return '#7fdd6d'; 
@@ -75,41 +77,32 @@ let classTyp = currentPokemon['types']['0']['type']['name'];
     }
     }
 
- function renderOverview(objectNumber) { 
-    document.getElementById(`pokeNameOverview${objectNumber}`).innerHTML = currentPokemon['name'];
-        document.getElementById(`pokeNumberOverview${objectNumber}`).innerHTML = `#${currentPokemon['id']}`;
-        document.getElementById(`pokeImgOverview${objectNumber}`).src = currentPokemon['sprites']['other']['dream_world']['front_default'];
-        document.getElementById(`typeOverview${objectNumber}`).innerHTML = currentPokemon['types']['0']['type']['name'];
-        document.getElementById(`pokeColorOverview${objectNumber}`).style = `background-color: ${getColorForPokemon()}`;
-        }
+ function renderOverview(i) { 
+      
+         let searchResult = i;
+        document.getElementById('pokeNameOverview').innerHTML = searchResult['name'];
+        document.getElementById('pokeNumberOverview').innerHTML = `#${searchResult['id']}`;
+        document.getElementById('pokeImgOverview').src = searchResult['sprites']['other']['dream_world']['front_default'];
+        document.getElementById('typeOverview').innerHTML = searchResult['types']['0']['type']['name'];
+        document.getElementById('pokeColorOverview').style = `background-color: ${getColorForPokemon()}`;
+        } 
+     
 
         function showOverview() {
             document.getElementById('overviewContainer').innerHTML = '';
 
-            for (let i = 0; i < searchEntries.length; i++) {
-                let objectNumber  = searchEntries[i];
-        document.getElementById('overviewContainer').innerHTML += `<div id="pokeColorOverview${objectNumber}" class="cards-view"> 
-        <div id="pokeNumberOverview${objectNumber}" class="poke-number-left" ></div> 
+           for (let i = 0; i < searchResults.length; i++) {
+               let searchResult = searchResults[i];
+                document.getElementById('overviewContainer').innerHTML += `<div id="pokeColorOverview${i}" class="cards-view"> 
+        <div id="pokeNumberOverview${i}" class="poke-number-left" ></div> 
         <div class="overview-cont">
-          <img id="pokeImgOverview${objectNumber}" class="imgOverview" src="">
+          <img id="pokeImgOverview${i}" class="imgOverview" src="">
           <div class="text-Overview">
-       <p id="pokeNameOverview${objectNumber}" class="nameOverview" ></p>
-       <p id="typeOverview${objectNumber}" class="typeOverview" ></p>
+       <p id="pokeNameOverview${i}" class="nameOverview" ></p>
+       <p id="typeOverview${i}" class="typeOverview" ></p>
       </div>
     </div>
       </div>`;
-      renderOverview(objectNumber);
-      searchEntries++;
-            }
+      renderOverview(searchResult);
+    } 
         }
-
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-        
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
