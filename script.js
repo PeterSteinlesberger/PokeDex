@@ -75,7 +75,7 @@ let classTyp = currentPokemon['types']['0']['type']['name'];
                 return '#836312';
     }
     }
-/*
+
  function renderOverview(searchEntries) { 
     document.getElementById(`pokeNameOverview${searchEntries}`).innerHTML = currentPokemon['name'];
         document.getElementById(`pokeNumberOverview${searchEntries}`).innerHTML = `#${currentPokemon['id']}`;
@@ -103,7 +103,7 @@ let classTyp = currentPokemon['types']['0']['type']['name'];
       searchEntries++;
             }
         }
- */
+ 
 
         async function loadPokemonList() {
            
