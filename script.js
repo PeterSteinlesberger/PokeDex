@@ -2,14 +2,15 @@
 let currentPokemon;
 let searchWithName = "charmander";
 let searchEntries = 1;
+let pokemonList;
 
 async function loadPokemon() {
     let url = `https://pokeapi.co/api/v2/pokemon/${searchWithName}`;
     let response = await fetch(url);
     currentPokemon = await response.json();
     renderPokemonInfo();
-    showOverview();
- 
+   // showOverview();
+    loadPokemonList();
 }
 
 function renderPokemonInfo() {
@@ -74,35 +75,51 @@ let classTyp = currentPokemon['types']['0']['type']['name'];
                 return '#836312';
     }
     }
-
- function renderOverview(objectNumber) { 
-    document.getElementById(`pokeNameOverview${objectNumber}`).innerHTML = currentPokemon['name'];
-        document.getElementById(`pokeNumberOverview${objectNumber}`).innerHTML = `#${currentPokemon['id']}`;
-        document.getElementById(`pokeImgOverview${objectNumber}`).src = currentPokemon['sprites']['other']['dream_world']['front_default'];
-        document.getElementById(`typeOverview${objectNumber}`).innerHTML = currentPokemon['types']['0']['type']['name'];
-        document.getElementById(`pokeColorOverview${objectNumber}`).style = `background-color: ${getColorForPokemon()}`;
+/*
+ function renderOverview(searchEntries) { 
+    document.getElementById(`pokeNameOverview${searchEntries}`).innerHTML = currentPokemon['name'];
+        document.getElementById(`pokeNumberOverview${searchEntries}`).innerHTML = `#${currentPokemon['id']}`;
+        document.getElementById(`pokeImgOverview${searchEntries}`).src = currentPokemon['sprites']['other']['dream_world']['front_default'];
+        document.getElementById(`typeOverview${searchEntries}`).innerHTML = currentPokemon['types']['0']['type']['name'];
+        document.getElementById(`pokeColorOverview${searchEntries}`).style = `background-color: ${getColorForPokemon()}`;
         }
 
         function showOverview() {
             document.getElementById('overviewContainer').innerHTML = '';
 
-            for (let i = 0; i < searchEntries.length; i++) {
-                let objectNumber  = searchEntries[i];
-        document.getElementById('overviewContainer').innerHTML += `<div id="pokeColorOverview${objectNumber}" class="cards-view"> 
-        <div id="pokeNumberOverview${objectNumber}" class="poke-number-left" ></div> 
+            for (let i = 0; i < searchEntries; i++) {
+    
+        document.getElementById('overviewContainer').innerHTML += `<div id="pokeColorOverview${searchEntries}" class="cards-view"> 
+        <div id="pokeNumberOverview${searchEntries}" class="poke-number-left" ></div> 
         <div class="overview-cont">
-          <img id="pokeImgOverview${objectNumber}" class="imgOverview" src="">
+          <img id="pokeImgOverview${searchEntries}" class="imgOverview" src="">
           <div class="text-Overview">
-       <p id="pokeNameOverview${objectNumber}" class="nameOverview" ></p>
-       <p id="typeOverview${objectNumber}" class="typeOverview" ></p>
+       <p id="pokeNameOverview${searchEntries}" class="nameOverview" ></p>
+       <p id="typeOverview${searchEntries}" class="typeOverview" ></p>
       </div>
     </div>
       </div>`;
-      renderOverview(objectNumber);
+      renderOverview(searchEntries); 
       searchEntries++;
             }
         }
+ */
 
+        async function loadPokemonList() {
+           
+            let url = `https://pokeapi.co/api/v2/pokemon/?limit=1118&offset=0`;
+            let response = await fetch(url);
+            pokemonList = await response.json();
+            let pokemonListContainer = document.getElementById('pokeNames');
+            
+            for (let i = 0; i < pokemonList.length; i++) {
+                console.log('test');
+                let pokeName = pokemonList['results'][i]['name'];
+                pokemonListContainer.innerHTML += `${pokeName}`;  
+            }
+        }
+
+       
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
