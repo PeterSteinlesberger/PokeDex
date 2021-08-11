@@ -1,8 +1,10 @@
 
 let currentPokemon;
-let searchWithName = "charmander";
+let searchWithName = "bulbasaur";
 let searchEntries = 1;
 let pokemonList;
+
+loadPokemonList();
 
 async function loadPokemon() {
     let url = `https://pokeapi.co/api/v2/pokemon/${searchWithName}`;
@@ -10,7 +12,6 @@ async function loadPokemon() {
     currentPokemon = await response.json();
     renderPokemonInfo();
    // showOverview();
-    loadPokemonList();
 }
 
 function renderPokemonInfo() {
@@ -112,19 +113,24 @@ let classTyp = currentPokemon['types']['0']['type']['name'];
             pokemonList = await response.json();
             let pokemonListContainer = document.getElementById('pokeNames');
             
-            for (let i = 0; i < pokemonList.length; i++) {
-                console.log('test');
+            for (let i = 0; i < 100 ; i++) {  // to get all 1118 PokemonNames on that list use "pokemonList['results'].length" as parameter!
                 let pokeName = pokemonList['results'][i]['name'];
-                pokemonListContainer.innerHTML += `${pokeName}`;  
+                pokemonListContainer.innerHTML += `
+                <div id="${i}" class="poke-names" onclick="loadNameFromList(${i})" >${pokeName}</div>
+               `;  
             }
         }
 
-       
+        function loadNameFromList(i) {
+           let pokeName = document.getElementById(i).innerHTML;
+           searchWithName = pokeName;
+            loadPokemon();
+            location.href="#main";
+        }
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-        
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
