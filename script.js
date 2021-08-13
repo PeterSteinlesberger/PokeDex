@@ -13,7 +13,12 @@ async function loadPokemon() {
     renderPokemonInfo();
 }
 
-function renderPokemonInfo() {
+function renderPokemon() {
+    renderPokemonInfo();
+    showOverview();
+}
+
+function renderPokemonInfo() {   
 document.getElementById('pokeName').innerHTML = currentPokemon['name'];
 document.getElementById('pokeNumber').innerHTML = `#${currentPokemon['id']}`;
 document.getElementById('pokeImg').src = currentPokemon['sprites']['other']['dream_world']['front_default'];
@@ -25,12 +30,12 @@ document.getElementById('type').innerHTML = currentPokemon['types']['0']['type']
 renderProgressBars();
 document.getElementById('pokeColor').style = `background-color: ${getColorForPokemon()}`;
 document.getElementById('type').style = `color: ${getColorForPokemon()}`;
-showOverview();
 }
 
 function searchByName() {
     searchWithName = document.getElementById('inputField').value;
     loadPokemon();
+    renderPokemon();
 }
 
 function renderProgressBars() {
@@ -107,6 +112,7 @@ document.getElementById('overviewContainer').innerHTML += `
         let pokeName = document.getElementById(pokeNameId).innerHTML;
         searchWithName = pokeName;
             loadPokemon();
+            renderPokemonInfo();
         }
  
 
@@ -129,6 +135,7 @@ document.getElementById('overviewContainer').innerHTML += `
            let pokeName = document.getElementById(i).innerHTML;
            searchWithName = pokeName;
             loadPokemon();
+            showOverview();
             location.href="#main";
         }
 
