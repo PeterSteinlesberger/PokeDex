@@ -78,31 +78,35 @@ let classTyp = currentPokemon['types']['0']['type']['name'];
     }
 
  function renderOverview(i) { 
-    document.getElementById(`pokeNameOverview${i}`).innerHTML = currentPokemon['name'];
-        document.getElementById(`pokeNumberOverview${i}`).innerHTML = `#${currentPokemon['id']}`;
-        document.getElementById(`pokeImgOverview${i}`).src = currentPokemon['sprites']['other']['dream_world']['front_default'];
-        document.getElementById(`typeOverview${i}`).innerHTML = currentPokemon['types']['0']['type']['name'];
-        document.getElementById(`pokeColorOverview${i}`).style = `background-color: ${getColorForPokemon()}`;
+    document.getElementById(`pokeNameOverview${currentPokemon['id']}`).innerHTML = currentPokemon['name'];
+        document.getElementById(`pokeNumberOverview${currentPokemon['id']}`).innerHTML = `#${currentPokemon['id']}`;
+        document.getElementById(`pokeImgOverview${currentPokemon['id']}`).src = currentPokemon['sprites']['other']['dream_world']['front_default'];
+        document.getElementById(`typeOverview${currentPokemon['id']}`).innerHTML = currentPokemon['types']['0']['type']['name'];
+        document.getElementById(`pokeColorOverview${currentPokemon['id']}`).style = `background-color: ${getColorForPokemon()}`;
         }
 
         function showOverview() {
-            document.getElementById('overviewContainer').innerHTML = '';
-            searchEntries++;
 
-            for (let i = 0; i < searchEntries; i++) {
-        document.getElementById('overviewContainer').innerHTML += `<div id="pokeColorOverview${i}" class="cards-view"> 
-        <div id="pokeNumberOverview${i}" class="poke-number-left" ></div> 
+document.getElementById('overviewContainer').innerHTML += `
+<div id="pokeColorOverview${currentPokemon['id']}" class="cards-view" onclick="showFromOverviewContainer(${currentPokemon['id']})"> 
+        <div id="pokeNumberOverview${currentPokemon['id']}" class="poke-number-left"></div> 
         <div class="overview-cont">
-          <img id="pokeImgOverview${i}" class="imgOverview" src="">
+          <img id="pokeImgOverview${currentPokemon['id']}" class="imgOverview" src="">
           <div class="text-Overview">
-       <p id="pokeNameOverview${i}" class="nameOverview" ></p>
-       <p id="typeOverview${i}" class="typeOverview" ></p>
+       <p id="pokeNameOverview${currentPokemon['id']}" class="nameOverview" ></p>
+       <p id="typeOverview${currentPokemon['id']}" class="typeOverview" ></p>
       </div>
     </div>
       </div>`;
-      renderOverview(i); 
-     
+      renderOverview(currentPokemon['id']); 
             }
+    
+
+           function showFromOverviewContainer(id) {
+            let pokeNameId = 'pokeNameOverview' + id;
+        let pokeName = document.getElementById(pokeNameId).innerHTML;
+        searchWithName = pokeName;
+            loadPokemon();
         }
  
 
