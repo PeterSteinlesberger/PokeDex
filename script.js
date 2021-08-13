@@ -1,7 +1,7 @@
 
 let currentPokemon;
 let searchWithName = "bulbasaur";
-let searchEntries = 1;
+let searchEntries = 0;
 let pokemonList;
 
 loadPokemonList();
@@ -11,7 +11,6 @@ async function loadPokemon() {
     let response = await fetch(url);
     currentPokemon = await response.json();
     renderPokemonInfo();
-   // showOverview();
 }
 
 function renderPokemonInfo() {
@@ -26,6 +25,7 @@ document.getElementById('type').innerHTML = currentPokemon['types']['0']['type']
 renderProgressBars();
 document.getElementById('pokeColor').style = `background-color: ${getColorForPokemon()}`;
 document.getElementById('type').style = `color: ${getColorForPokemon()}`;
+showOverview();
 }
 
 function searchByName() {
@@ -35,9 +35,9 @@ function searchByName() {
 
 function renderProgressBars() {
     document.getElementById('experience').style.width = `${currentPokemon['base_experience'] /2}%`;
-    document.getElementById('weight').style.width = `${currentPokemon['weight'] /2}%`;
+    document.getElementById('weight').style.width = `${currentPokemon['weight'] /5}%`;
     document.getElementById('height').style.width = `${currentPokemon['height'] *5}%`;
-    document.getElementById('order').style.width = `${currentPokemon['order'] *5}%`;
+    document.getElementById('order').style.width = `${currentPokemon['order']}%`;
 }
 
 
@@ -77,31 +77,31 @@ let classTyp = currentPokemon['types']['0']['type']['name'];
     }
     }
 
- function renderOverview(searchEntries) { 
-    document.getElementById(`pokeNameOverview${searchEntries}`).innerHTML = currentPokemon['name'];
-        document.getElementById(`pokeNumberOverview${searchEntries}`).innerHTML = `#${currentPokemon['id']}`;
-        document.getElementById(`pokeImgOverview${searchEntries}`).src = currentPokemon['sprites']['other']['dream_world']['front_default'];
-        document.getElementById(`typeOverview${searchEntries}`).innerHTML = currentPokemon['types']['0']['type']['name'];
-        document.getElementById(`pokeColorOverview${searchEntries}`).style = `background-color: ${getColorForPokemon()}`;
+ function renderOverview(i) { 
+    document.getElementById(`pokeNameOverview${i}`).innerHTML = currentPokemon['name'];
+        document.getElementById(`pokeNumberOverview${i}`).innerHTML = `#${currentPokemon['id']}`;
+        document.getElementById(`pokeImgOverview${i}`).src = currentPokemon['sprites']['other']['dream_world']['front_default'];
+        document.getElementById(`typeOverview${i}`).innerHTML = currentPokemon['types']['0']['type']['name'];
+        document.getElementById(`pokeColorOverview${i}`).style = `background-color: ${getColorForPokemon()}`;
         }
 
         function showOverview() {
             document.getElementById('overviewContainer').innerHTML = '';
+            searchEntries++;
 
             for (let i = 0; i < searchEntries; i++) {
-    
-        document.getElementById('overviewContainer').innerHTML += `<div id="pokeColorOverview${searchEntries}" class="cards-view"> 
-        <div id="pokeNumberOverview${searchEntries}" class="poke-number-left" ></div> 
+        document.getElementById('overviewContainer').innerHTML += `<div id="pokeColorOverview${i}" class="cards-view"> 
+        <div id="pokeNumberOverview${i}" class="poke-number-left" ></div> 
         <div class="overview-cont">
-          <img id="pokeImgOverview${searchEntries}" class="imgOverview" src="">
+          <img id="pokeImgOverview${i}" class="imgOverview" src="">
           <div class="text-Overview">
-       <p id="pokeNameOverview${searchEntries}" class="nameOverview" ></p>
-       <p id="typeOverview${searchEntries}" class="typeOverview" ></p>
+       <p id="pokeNameOverview${i}" class="nameOverview" ></p>
+       <p id="typeOverview${i}" class="typeOverview" ></p>
       </div>
     </div>
       </div>`;
-      renderOverview(searchEntries); 
-      searchEntries++;
+      renderOverview(i); 
+     
             }
         }
  
